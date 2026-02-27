@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
-import { Award, FileText, MessageSquare, ChevronDown, Sparkles, TrendingUp } from "lucide-react";
+import { Award, FileText, MessageSquare, ChevronDown, Sparkles, TrendingUp, type LucideIcon } from "lucide-react";
 import { useBioStore, ResultsReport } from "@/store/useBioStore";
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -152,7 +152,7 @@ function ResultCard({
     custom,
     children,
 }: {
-    icon: React.ElementType;
+    icon: LucideIcon;
     title: string;
     accent: string;
     custom: number;
