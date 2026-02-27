@@ -1,16 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { Award, FileText, MessageSquare, ChevronDown, Sparkles, TrendingUp } from "lucide-react";
 import { useBioStore, ResultsReport } from "@/store/useBioStore";
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
-const cardVariants = {
+const cardVariants: Variants = {
     hidden: { opacity: 0, y: 32, filter: "blur(6px)" },
     visible: (i: number) => ({
         opacity: 1, y: 0, filter: "blur(0px)",
-        transition: { duration: 0.55, ease: "easeOut", delay: i * 0.12 },
+        transition: { duration: 0.55, ease: "easeOut" as const, delay: i * 0.12 },
     }),
 };
 
