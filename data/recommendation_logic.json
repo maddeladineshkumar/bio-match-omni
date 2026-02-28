@@ -1,0 +1,172 @@
+{
+    "Recommendation_Logic": [
+        {
+            "Logic_Category": "Mechanical Compatibility - Stress Shielding (Elastic Modulus Mismatch Ratio)",
+            "Standard_Formula_or_Rule": "SSR = E_implant / E_bone\n\nWhere:\n  - If SSR <= 2.0  -> LOW stress shielding risk (ACCEPT for load-bearing)\n  - If 2.0 < SSR <= 10.0 -> MODERATE risk (conditional accept; porous or coated design required)\n  - If SSR > 10.0 -> HIGH stress shielding risk (REJECT for primary load-bearing cortical bone applications)\n\nNote: There is no single universally standardized SSR threshold formula in one ISO/ASTM document. The ratio derives from Wolff's Law (Wolff, 1892) and is operationalised per Huiskes et al. (1987) SED theory. The thresholds above reflect the consensus applied in computational biomechanics literature.",
+            "Variables_Defined": {
+                "SSR": "Stress Shielding Ratio [dimensionless] - ratio of implant elastic modulus to bone elastic modulus",
+                "E_implant": "Elastic modulus (Young's modulus) of the implant material [Pa or GPa]",
+                "E_bone_cortical": "Elastic modulus of cortical bone = 7–25 GPa (range from Ratner et al., Biomaterials Science 4th ed.)",
+                "E_bone_trabecular": "Elastic modulus of trabecular bone = 0.02–2.0 GPa (range from Ratner et al.)"
+            },
+            "Clinical_Application": "Compare the implant material's elastic modulus to the target anatomical bone type. For a femoral stem (cortical bone, E_bone ≈ 17 GPa), Ti-6Al-4V (110 GPa) yields SSR ≈ 6.5 (MODERATE). Stainless steel (200 GPa) yields SSR ≈ 11.8 (HIGH -> REJECT). PEEK (3.6 GPa) yields SSR ≈ 0.21 (LOW for cortical; best for non-load-bearing spinal fusion cages where bone modulus ≈ 3-7 GPa). Use bone type (cortical vs. trabecular) as the E_bone input based on anatomical target of the implant.",
+            "Primary_Source_ID": "REF-LOGIC-01"
+        },
+        {
+            "Logic_Category": "Mechanical Compatibility - Bone Remodeling Stimulus (Huiskes Strain Energy Density Rate Law)",
+            "Standard_Formula_or_Rule": "dρ/dt = B * ρ * (U - U_ref)          if U > U_ref * (1 + δ)  [bone apposition]\ndρ/dt = 0                              if U_ref*(1-δ) ≤ U ≤ U_ref*(1+δ)  [lazy zone, no remodeling]\ndρ/dt = B * ρ * (U - U_ref)          if U < U_ref * (1 - δ)  [bone resorption]",
+            "Variables_Defined": {
+                "dρ/dt": "Rate of change in apparent bone density [kg/m³ per day or per remodeling cycle]",
+                "B": "Remodeling rate coefficient [m²/(N·s)] - site-specific empirical constant",
+                "ρ": "Current apparent bone density at the location [kg/m³]",
+                "U": "Local strain energy density at the site [J/m³ = Pa] - calculated from FEA stress-strain state",
+                "U_ref": "Reference (homeostatic) strain energy density [J/m³] - the baseline SED of an intact bone under normal physiological loading",
+                "δ": "Half-width of the lazy zone [dimensionless, typically δ = 0.75]; the dead zone spans ±75% of U_ref in Huiskes's original formulation"
+            },
+            "Clinical_Application": "This law quantifies bone loss or gain around an implant. If implant stiffness causes U < U_ref*(1-δ) at a periprosthetic site, bone resorption is predicted (stress shielding outcome). If U > U_ref*(1+δ), bone hypertrophy may occur. In material selection, this formula is used in FEA simulations to predict long-term bone density changes around candidate implant materials. Materials with SSR >> 1 will systematically drive U below the lazy zone threshold, flagging them for rejection in primary cortical bone applications.",
+            "Primary_Source_ID": "REF-LOGIC-02"
+        },
+        {
+            "Logic_Category": "Tribological Performance - Archard Sliding Wear Equation",
+            "Standard_Formula_or_Rule": "V = K * W * L / H\n\nEquivalent volumetric wear rate form:\nQ_v = (dV/dt) = K * p * v / H",
+            "Variables_Defined": {
+                "V": "Total wear volume of material removed from the softer surface [m³]",
+                "K": "Dimensionless wear coefficient [dimensionless] - material-pair and lubrication specific. Representative values: UHMWPE on CoCrMo ≈ 1×10⁻⁷; Al2O3 ceramic pairs ≈ 1×10⁻⁸; unlubricated metal-metal ≈ 1×10⁻² to 10⁻³",
+                "W": "Applied normal load (contact force) [N]",
+                "L": "Total sliding distance between articulating surfaces [m]",
+                "H": "Hardness of the softer of the two contacting materials [Pa] (typically given as Vickers hardness converted: 1 HV ≈ 9.807 MPa = 9.807×10⁶ Pa)",
+                "Q_v": "Volumetric wear rate [m³/s] - volume of material worn per unit time",
+                "p": "Mean contact pressure (normal stress) [Pa]",
+                "v": "Sliding velocity [m/s]"
+            },
+            "Clinical_Application": "Use to estimate annual volumetric wear for joint replacement bearing couples (e.g., hip: ~1×10⁶ cycles/year, sliding distance ≈ 2–3 m/cycle; typical contact load ≈ 2.5–3× body weight). Compare predicted V to clinical failure thresholds: UHMWPE debris generation >0.1 mm³/10⁶ cycles correlates with increased osteolysis risk. For material selection: ceramic-on-ceramic (K ≈ 1×10⁻⁸) scores SUPERIOR; metal-on-UHMWPE (K ≈ 1×10⁻⁷) acceptable; metal-on-metal (K ≈ 1×10⁻⁶ to 10⁻⁵) scores CAUTION due to nano-debris toxicity. REJECT any pair with predicted V > 100 mm³/year for weight-bearing joints.",
+            "Primary_Source_ID": "REF-LOGIC-03"
+        },
+        {
+            "Logic_Category": "Degradation Rate - Biodegradable Implant (Gravimetric / Weight-Loss Method, ASTM G31)",
+            "Standard_Formula_or_Rule": "CR = (K_g * ΔW) / (D * A * t)\n\nWhere K_g = 8.76 × 10⁴ [mm·mg·h / (cm²·g·year)] for output in mm/year",
+            "Variables_Defined": {
+                "CR": "Corrosion (degradation) rate [mm/year]",
+                "K_g": "Unit conversion constant = 8.76 × 10⁴ [dimensionless conversion factor for mm/year output when ΔW in mg, D in g/cm³, A in cm², t in hours]",
+                "ΔW": "Mass loss = (initial mass) - (mass after corrosion product removal) [mg]",
+                "D": "Density of the biodegradable alloy [g/cm³] (e.g., Mg alloys ≈ 1.74–1.84 g/cm³)",
+                "A": "Initial exposed surface area of the specimen [cm²]",
+                "t": "Immersion duration in simulated body fluid (SBF) or Hank's solution at 37°C [hours]"
+            },
+            "Clinical_Application": "Apply to biodegradable Mg alloy and polymer candidate materials during pre-selection. Target CR thresholds for bone fixation: CR < 0.5 mm/year is considered acceptable for load-bearing Mg screws (maintains structural integrity ≥ 6 months). CR > 2.0 mm/year is grounds for REJECTION from primary load-bearing use. Compare in vitro CR to healing timeline of target tissue (bone fracture: 6–12 weeks; critical defect: 6–18 months). If CR yields >50% cross-sectional area loss before healing timeline, flag material as INCOMPATIBLE for that application. Test medium must be specified; SBF, DMEM, or PBS yield different rates - SBF at pH 7.4, 37°C per ISO 23317 is the standard reference.",
+            "Primary_Source_ID": "REF-LOGIC-04"
+        },
+        {
+            "Logic_Category": "Degradation Rate - Electrochemical Corrosion Rate (Faraday's Law, ASTM G102)",
+            "Standard_Formula_or_Rule": "CR = K_1 * (i_corr * EW) / ρ\n\nWhere K_1 = 3.27 × 10⁻³ [mm·g / (µA·cm·year)] for output in mm/year when i_corr in µA/cm²",
+            "Variables_Defined": {
+                "CR": "Corrosion (penetration) rate [mm/year]",
+                "K_1": "Unit conversion constant = 3.27 × 10⁻³ [mm·g / (µA·cm·year)] as specified in ASTM G102",
+                "i_corr": "Corrosion current density [µA/cm²] - obtained from Tafel plot extrapolation of potentiodynamic polarization scans or the Stern-Geary equation: i_corr = B / R_p, where B = Stern-Geary constant (≈26 mV for active metals) and R_p = polarization resistance [Ω·cm²]",
+                "EW": "Equivalent weight of the corroding material [g/equivalent] = M / n, where M is atomic weight [g/mol] and n is valence (electrons exchanged). For Mg: EW = 24.31/2 = 12.15 g/eq; for Fe: EW = 55.85/2 = 27.93 g/eq",
+                "ρ": "Density of the corroding material [g/cm³]",
+                "B": "Stern-Geary constant [mV] ≈ 26 mV for most active metal dissolution",
+                "R_p": "Polarization resistance [Ω·cm²] - inverse slope of the current-potential curve at E_corr"
+            },
+            "Clinical_Application": "Use electrochemical method (Potentiodynamic Polarization per ASTM G61; EIS per ASTM G106) as the accelerated screening method for permanent metallic implants (Ti, CoCr, SS, Ta). Acceptance threshold for passive metallic implants: i_corr < 0.5 µA/cm² in SBF at 37°C (corresponding to CR < 0.001 mm/year). REJECT if i_corr > 5 µA/cm² or if no stable passivation plateau is observed in the polarization curve. Note: For Mg alloys, the gravimetric ASTM G31 method is preferred as a primary result because Mg exhibits the 'negative difference effect', causing electrochemical measurements to UNDERESTIMATE actual corrosion rate - always cross-validate both methods for Mg candidates.",
+            "Primary_Source_ID": "REF-LOGIC-05"
+        },
+        {
+            "Logic_Category": "Biocompatibility Screening - ISO 10993 Cytotoxicity Pass/Fail Gate",
+            "Standard_Formula_or_Rule": "Cell Viability Index (CVI) = (OD_test / OD_control) * 100\n\nPass/Fail Gate:\n  - CVI >= 70% -> PASS (material is non-cytotoxic, proceed to further testing)\n  - CVI < 70%  -> FAIL (material is cytotoxic, REJECT or reformulate)",
+            "Variables_Defined": {
+                "CVI": "Cell Viability Index [%] - percentage of viable cells in test extract relative to negative control",
+                "OD_test": "Optical density reading of the cell culture exposed to material extract [absorbance units, dimensionless] - measured by MTT or MTS assay at 570 nm wavelength",
+                "OD_control": "Optical density of the negative control cell culture (no material extract) [absorbance units, dimensionless]",
+                "Test_Extract_Preparation": "Material eluted in culture medium at 37°C for 72 hours at a surface-area-to-volume ratio of 6 cm²/mL (for materials <0.5 mm thick) or 3 cm²/mL (for bulk) per ISO 10993-12",
+                "Cell_Line": "Standard L929 mouse fibroblast cells (ATCC CCL-1) per ISO 10993-5 Annex C"
+            },
+            "Clinical_Application": "This is the mandatory first-pass biocompatibility gate required by ISO 10993-5 (cytotoxicity) for all implant material candidates. A material CANNOT pass to in vivo or osseointegration evaluation without achieving CVI ≥ 70% in at least three independent assays. Materials from the dataset with well-documented CVI ≥ 70%: CP-Ti, Ti alloys, CoCrMo, PEEK, HA, UHMWPE, Zirconia, Si3N4. Materials that require surface treatment to pass: uncoated Mg alloys (rapid Mg²⁺ and H₂ evolution can reduce CVI in direct contact assays).",
+            "Primary_Source_ID": "REF-LOGIC-06"
+        },
+        {
+            "Logic_Category": "Osseointegration Qualification - Implant Stability Quotient (ISQ) Scoring via Resonance Frequency Analysis",
+            "Standard_Formula_or_Rule": "ISQ = f(RF) = scale conversion from resonance frequency [kHz] to unitless 1–100 scale per Osstell/RFA device calibration\n\nLoading Protocol Decision Tree (per Buser et al. consensus):\n  IF ISQ >= 70 -> HIGH stability -> ELIGIBLE for immediate or early loading protocol\n  IF 60 <= ISQ < 70 -> MEDIUM stability -> Delayed loading mandatory (min. 6–8 weeks post-op)\n  IF ISQ < 60 -> LOW stability -> Conventional healing period required (12–16 weeks); consider re-evaluation\n  IF ISQ < 45 -> IMPLANT FAILURE RISK -> Clinical intervention required",
+            "Variables_Defined": {
+                "ISQ": "Implant Stability Quotient [dimensionless, scale 1–100] - indirect measure of implant-bone interface rigidity via resonance frequency of the implant-bone system",
+                "RF": "Resonance frequency of the implant-SmartPeg system [kHz] - measured non-invasively by Resonance Frequency Analysis (RFA) using an Osstell ISQ device (Osstell AB, Gothenburg, Sweden)",
+                "BIC_pct": "Bone-to-Implant Contact percentage [%] - histomorphometric measure; calculated as: (length of bone in direct contact with implant surface) / (total implant surface perimeter) × 100, measured on histological sections",
+                "MBL": "Marginal Bone Loss [mm/year] - radiographic measurement of annual crestal bone resorption at implant neck"
+            },
+            "Clinical_Application": "ISQ is the primary clinical osseointegration monitoring tool. Map implant material bioactivity to expected ISQ trajectory: HIGH osseointegration materials (CP-Ti, Si3N4, HA-coated implants) typically show ISQ values rising from 60–65 at insertion to 70–80 at 8 weeks. LOW bioactivity materials (PEEK uncoated, Zirconia) may plateau at ISQ 55–65 without surface modification. Reject material suitability for a given bone site if predicted BIC% at 12 weeks (from pre-clinical literature) < 50%, as this correlates with ISQ < 60 and inadequate mechanical anchorage. Combine with bone density input (Lekholm-Zarb Type I-IV bone) as a confounding input - Type IV bone (spongy, low density) reduces ISQ by 8–15 units vs. Type I cortical bone with identical implant.",
+            "Primary_Source_ID": "REF-LOGIC-07"
+        },
+        {
+            "Logic_Category": "Composite Material Suitability Score - Bio-Match Weighted Scoring Matrix",
+            "Standard_Formula_or_Rule": "Bio-Match Score (BMS) = Σ (w_i * S_i)  for i = 1 to N criteria\n\nNormalized to 0-100 scale:\nBMS = [Σ (w_i * S_i) / Σ w_i] * 100\n\nDefault weights for load-bearing orthopaedic applications:\n  w_1 = 0.30  (Stress Shielding: SSR score)\n  w_2 = 0.25  (Wear resistance: Archard K score)\n  w_3 = 0.20  (Biocompatibility: CVI gate + ISQ category)\n  w_4 = 0.15  (Corrosion resistance: i_corr score)\n  w_5 = 0.10  (Fatigue safety factor: σ_fatigue / σ_applied)\n\nScoring convention per criterion:\n  Excellent performance -> S_i = 1.0\n  Good               -> S_i = 0.75\n  Moderate           -> S_i = 0.50\n  Poor               -> S_i = 0.25\n  FAIL (hard reject) -> S_i = 0.0 AND BMS = 0 (gate failure overrides total)",
+            "Variables_Defined": {
+                "BMS": "Bio-Match Score [dimensionless, 0–100] - composite suitability score for a given material-anatomy combination",
+                "w_i": "Weight of criterion i [dimensionless, sum of all w_i = 1.0] - configurable per application type (orthopaedic, dental, cardiovascular, bio-absorbable)",
+                "S_i": "Sub-score for criterion i [dimensionless, 0.0–1.0] - derived from the quantitative formulas in the other Logic Categories",
+                "N": "Total number of evaluation criteria [integer] - default N = 5 for load-bearing; adjustable per implant category",
+                "σ_fatigue": "Fatigue limit of the material [Pa] - from cyclic testing per ASTM F1801 (metallic) or ISO 14801 (dental implants)",
+                "σ_applied": "Expected peak cyclic stress at the implant site [Pa] - from biomechanical analysis or FEA"
+            },
+            "Clinical_Application": "FINAL RECOMMENDATION ENGINE LOGIC: BMS >= 75 -> RECOMMEND (strong candidate for this application). BMS 50-74 -> CONDITIONAL (acceptable with caveats; specific surface treatment or design modification may be required). BMS 25-49 -> NOT RECOMMENDED (significant deficiencies; use only if no superior alternative exists). BMS < 25 OR any S_i = 0 (gate failure) -> REJECT. Recalculate with application-specific weights: cardiovascular stents increase w_4 (corrosion) to 0.35 and reduce w_1 (stress shielding) to 0.10; biodegradable applications replace w_2 with degradation rate criterion and increase to 0.35.",
+            "Primary_Source_ID": "REF-LOGIC-08"
+        }
+    ],
+    "Verified_Resource_Log": [
+        {
+            "Reference_ID": "REF-LOGIC-01",
+            "Source_Name": "Biomaterials Science: An Introduction to Materials in Medicine, 4th Edition (Chapter: Mechanical Properties of Biomaterials; and Wolff's Law derivation context)",
+            "Authors_or_Institution": "Ratner BD, Hoffman AS, Schoen FJ, Lemons JE (eds.)",
+            "Publication_Year": "2020",
+            "DOI_URL_or_ISBN": "ISBN: 978-0-12-816137-1"
+        },
+        {
+            "Reference_ID": "REF-LOGIC-02",
+            "Source_Name": "Adaptive bone-remodeling theory applied to prosthetic-design analysis",
+            "Authors_or_Institution": "Huiskes R, Weinans H, Grootenboer HJ, Dalstra M, Fudala B, Slooff TJ",
+            "Publication_Year": "1987",
+            "DOI_URL_or_ISBN": "https://doi.org/10.1016/0021-9290(87)90030-3"
+        },
+        {
+            "Reference_ID": "REF-LOGIC-03",
+            "Source_Name": "Contact and Rubbing of Flat Surfaces (original Archard wear paper - foundational derivation of V = KWL/H)",
+            "Authors_or_Institution": "Archard JF",
+            "Publication_Year": "1953",
+            "DOI_URL_or_ISBN": "https://doi.org/10.1063/1.1721448"
+        },
+        {
+            "Reference_ID": "REF-LOGIC-04",
+            "Source_Name": "Standard Practice for Laboratory Immersion Corrosion Testing of Metals (ASTM G31-21)",
+            "Authors_or_Institution": "ASTM International",
+            "Publication_Year": "2021",
+            "DOI_URL_or_ISBN": "https://www.astm.org/g0031-21.html"
+        },
+        {
+            "Reference_ID": "REF-LOGIC-05",
+            "Source_Name": "Standard Practice for Calculation of Corrosion Rates and Related Information from Electrochemical Measurements (ASTM G102-89, Reapproved 2015)",
+            "Authors_or_Institution": "ASTM International",
+            "Publication_Year": "2015",
+            "DOI_URL_or_ISBN": "https://www.astm.org/g0102-89r15e01.html"
+        },
+        {
+            "Reference_ID": "REF-LOGIC-06",
+            "Source_Name": "Biological Evaluation of Medical Devices - Part 5: Tests for In Vitro Cytotoxicity (ISO 10993-5:2009)",
+            "Authors_or_Institution": "International Organization for Standardization (ISO)",
+            "Publication_Year": "2009",
+            "DOI_URL_or_ISBN": "https://www.iso.org/standard/36406.html"
+        },
+        {
+            "Reference_ID": "REF-LOGIC-07",
+            "Source_Name": "Optimizing Loading Protocols for Implant Therapy in the Edentulous and Partially Dentate Patient — A Consensus Statement (ITI Consensus; references ISQ thresholds for loading decisions)",
+            "Authors_or_Institution": "Buser D, Janner SFM, Wittneben JG, Bragger U, Ramseier CA, Salvi GE",
+            "Publication_Year": "2012",
+            "DOI_URL_or_ISBN": "https://doi.org/10.1111/j.1600-0501.2012.02545.x"
+        },
+        {
+            "Reference_ID": "REF-LOGIC-08",
+            "Source_Name": "Biomaterials Science: An Introduction to Materials in Medicine, 4th Edition (Chapter: The Biomaterials Selection Process - performance criteria weighting framework)",
+            "Authors_or_Institution": "Ratner BD, Hoffman AS, Schoen FJ, Lemons JE (eds.)",
+            "Publication_Year": "2020",
+            "DOI_URL_or_ISBN": "ISBN: 978-0-12-816137-1"
+        }
+    ]
+}

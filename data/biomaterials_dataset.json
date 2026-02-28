@@ -1,0 +1,469 @@
+{
+  "Biomaterials_Dataset": [
+    {
+      "Material_Name": "Ti-6Al-4V ELI (Extra Low Interstitial)",
+      "Implant_Category": "Load-bearing orthopaedic; spinal; trauma",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 110,
+        "Yield_Strength_MPa": 828,
+        "Fatigue_Limit_MPa": 500
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "High - forms stable TiO2 oxide layer enabling direct bone apposition; used in load-bearing femoral stems and acetabular cups",
+        "Corrosion_Resistance": "Excellent - passive TiO2 oxide film; corrosion rate < 0.01 mm/year in simulated body fluid",
+        "Toxicity_Risks": "None clinically significant at bulk material level; trace vanadium ion release at nano-scale debated but ELI grade significantly mitigates risk"
+      },
+      "Primary_Source_ID": "REF-01"
+    },
+    {
+      "Material_Name": "CoCrMo Alloy (ASTM F75, Cast)",
+      "Implant_Category": "Load-bearing orthopaedic; dental; cardiovascular",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 230,
+        "Yield_Strength_MPa": 450,
+        "Fatigue_Limit_MPa": 310
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "Medium - bioinert; bone attachment is mechanical via surface roughness rather than chemical bonding; used effectively in hip/knee articulating surfaces",
+        "Corrosion_Resistance": "Excellent - Cr2O3 passive film formed; minor Co, Cr, Mo ion release in vivo reported",
+        "Toxicity_Risks": "Metal ion hypersensitivity possible (Cobalt, Chromium, Nickel); metal-on-metal articulation generates nano-particles linked to adverse local tissue reactions (ALTR)"
+      },
+      "Primary_Source_ID": "REF-02"
+    },
+    {
+      "Material_Name": "PEEK-OPTIMA (Polyetheretherketone, medical grade)",
+      "Implant_Category": "Spinal interbody fusion; craniomaxillofacial; radiolucent orthopaedic",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 3.6,
+        "Yield_Strength_MPa": 100,
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "Low (unmodified) - bioinert polymer; no cytotoxicity, genotoxicity, or immunogenicity confirmed over 20+ years of clinical data; HA-coated or plasma-treated PEEK achieves Medium",
+        "Corrosion_Resistance": "Excellent - chemically inert polymer; not susceptible to electrochemical corrosion",
+        "Toxicity_Risks": "None clinically significant; radiolucent enabling post-op MRI/CT imaging without artifact"
+      },
+      "Primary_Source_ID": "REF-03"
+    },
+    {
+      "Material_Name": "316L Stainless Steel (ASTM F138, Annealed)",
+      "Implant_Category": "Trauma fixation; fracture plates; temporary orthopaedic hardware",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 197,
+        "Yield_Strength_MPa": 240,
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "Low - not designed for permanent osseous integration; used for temporary fixation hardware removed after healing",
+        "Corrosion_Resistance": "Good - Cr2O3 passive layer; susceptibility to pitting and crevice corrosion in chloride-rich physiological fluids under fretting conditions",
+        "Toxicity_Risks": "Nickel ion release can cause hypersensitivity reactions in susceptible patients; not recommended for permanent long-term implantation"
+      },
+      "Primary_Source_ID": "REF-04"
+    },
+    {
+      "Material_Name": "Hydroxyapatite (Sintered Dense HA, Ca10(PO4)6(OH)2)",
+      "Implant_Category": "Bone substitute; coating for metallic implants; non-load-bearing defect filling",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 80,
+        "Yield_Strength_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION",
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "High - chemically identical to bone mineral phase; strongly osteoconductive; direct chemical bonding with living bone demonstrated in vivo",
+        "Corrosion_Resistance": "Excellent - ceramic; chemically stable in physiological pH; slow resorption (non-resorbable to very slowly resorbable)",
+        "Toxicity_Risks": "None clinically significant; potential osteolysis if exposed to bone marrow and soft tissues noted in some reports"
+      },
+      "Primary_Source_ID": "REF-05"
+    },
+    {
+      "Material_Name": "UHMWPE (Ultra-High Molecular Weight Polyethylene, Conventional)",
+      "Implant_Category": "Articular bearing surface (hip, knee, shoulder joint replacement)",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 0.69,
+        "Yield_Strength_MPa": 21,
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "Low - polymer bearing surface not intended for osseous integration; functions via mechanical interlock of fixation component",
+        "Corrosion_Resistance": "Excellent - chemically inert polymer; no electrochemical degradation",
+        "Toxicity_Risks": "Wear debris particles trigger macrophage response, aseptic loosening, and osteolysis; highly cross-linked UHMWPE variants significantly reduce wear particle generation"
+      },
+      "Primary_Source_ID": "REF-06"
+    },
+    {
+      "Material_Name": "45S5 Bioglass (Bioactive Glass)",
+      "Implant_Category": "Bone defect regeneration; bioactive scaffold; non-load-bearing dental/maxillofacial",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 35,
+        "Yield_Strength_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION",
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "High - bioactive; rapidly forms carbonated hydroxyapatite (CHA) layer on surface within hours of implantation; documented direct bonding to both hard and soft tissue",
+        "Corrosion_Resistance": "Not applicable (bioactive; controlled dissolution is the functional mechanism; degrades within 9-12 months in vivo)",
+        "Toxicity_Risks": "None clinically significant; no cytotoxicity or chronic inflammation observed in in vivo studies"
+      },
+      "Primary_Source_ID": "REF-07"
+    },
+    {
+      "Material_Name": "WE43 Magnesium Alloy (Mg-4Y-3RE)",
+      "Implant_Category": "Biodegradable orthopaedic (bone screws, cardiovascular stents)",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 45,
+        "Yield_Strength_MPa": 227,
+        "Fatigue_Limit_MPa": 90
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "Medium - osteoconductive and biocompatible; bone forms around degrading implant; complete replacement of implant by bone tissue is the intended outcome",
+        "Corrosion_Resistance": "Moderate - lower initial corrosion rate vs. other Mg alloys; SLM-produced in vitro corrosion rate 1.3-2.6 mm/year; rare earth elements improve protective oxide layer",
+        "Toxicity_Risks": "Hydrogen gas evolution during rapid corrosion; biological effects of yttrium (Y) and rare earth (RE) elements remain under investigation; degradation generates local alkalinity"
+      },
+      "Primary_Source_ID": "REF-08"
+    },
+    {
+      "Material_Name": "AZ31B Magnesium Alloy (Mg-3Al-1Zn)",
+      "Implant_Category": "Biodegradable orthopaedic (load-bearing bone plates, fracture fixation)",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 45.41,
+        "Yield_Strength_MPa": 252,
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "Medium - promotes new bone formation; AZ31B noted to be biocompatible and biodegradable in vivo models",
+        "Corrosion_Resistance": "Moderate to Poor - in vitro corrosion rate up to 0.91 mm/year in DMEM; mechanical properties degrade significantly with corrosion (tensile strength drops from ~252 MPa to ~73 MPa at 3 months in vitro)",
+        "Toxicity_Risks": "Aluminum (Al) ion release is a concern for long-term neurotoxicity at high concentrations; rapid degradation may cause local tissue irritation from pH rise and H2 evolution"
+      },
+      "Primary_Source_ID": "REF-08"
+    },
+    {
+      "Material_Name": "Yttria-Stabilized Tetragonal Zirconia Polycrystal (3Y-TZP)",
+      "Implant_Category": "Dental implants; femoral heads; maxillofacial",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 205,
+        "Yield_Strength_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION",
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "Medium - biologically inert; cell proliferation rates comparable to control; lacks bioactivity for direct chemical bonding but surface modifications can improve osseointegration; limits bacterial proliferation",
+        "Corrosion_Resistance": "Excellent - chemically inert ceramic; no electrochemical degradation in physiological fluids",
+        "Toxicity_Risks": "None clinically significant; potential low-temperature degradation (LTD) / hydrothermal aging in humid environment can compromise mechanical stability over time"
+      },
+      "Primary_Source_ID": "REF-09"
+    },
+    {
+      "Material_Name": "CP-Titanium Grade 4 (ASTM F67)",
+      "Implant_Category": "Dental implants; endosseous fixtures; maxillofacial hardware",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 103,
+        "Yield_Strength_MPa": 480,
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "High - gold standard for dental osseointegration; >95% 10-year survival rates documented clinically; forms stable TiO2 layer; no alloying elements minimizes allergy risk",
+        "Corrosion_Resistance": "Excellent - spontaneous TiO2 passivation; very low corrosion rate in physiological environments",
+        "Toxicity_Risks": "None clinically significant; absence of alloying elements (Al, V) eliminates related cytotoxicity concerns"
+      },
+      "Primary_Source_ID": "REF-10"
+    },
+    {
+      "Material_Name": "Nitinol (NiTi, Superelastic / Shape Memory Alloy)",
+      "Implant_Category": "Cardiovascular stents; guidewires; orthodontic archwires; bone staples",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 75,
+        "Yield_Strength_MPa": 195,
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "Low - not applicable for primary use; stent/wire function relies on shape memory/superelasticity; surface passivation forms TiO2-rich layer limiting Ni release",
+        "Corrosion_Resistance": "Good - surface TiO2 passivation layer provides corrosion protection; Ni release decreases significantly post-passivation treatment",
+        "Toxicity_Risks": "Nickel content (55-56 wt%) presents risk for Ni hypersensitivity; long-term in vivo Ni ion release is a clinical concern; surface oxide passivation treatments are critical to minimizing risk"
+      },
+      "Primary_Source_ID": "REF-11"
+    },
+    {
+      "Material_Name": "PLGA (Poly(Lactic-co-Glycolic Acid), 75:25 ratio)",
+      "Implant_Category": "Bio-absorbable; drug delivery; soft tissue scaffold; bioabsorbable sutures",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 0.9,
+        "Yield_Strength_MPa": 36.6,
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "Low (unmodified) - bioresorbable polymer matrix; poor osteoconductivity in pure form; used as scaffold/carrier material rather than bone-bonding implant",
+        "Corrosion_Resistance": "Not applicable (biodegradable by hydrolysis of ester linkages; degradation products are lactic acid and glycolic acid, both metabolized via Krebs cycle)",
+        "Toxicity_Risks": "FDA-approved for biomedical use; degradation may cause local acidification; historical PLGA suture anchors associated with rare cyst formation and sterile inflammation in some cases"
+      },
+      "Primary_Source_ID": "REF-12"
+    },
+    {
+      "Material_Name": "Porous Tantalum (Trabecular Metal™)",
+      "Implant_Category": "Revision joint arthroplasty; spinal fusion; bone defect reconstruction",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 3,
+        "Yield_Strength_MPa": 100,
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "High - highly porous structure (up to 75-80% porosity) mimics cancellous bone; extensive vascular and osseous ingrowth; osteoconductive, osteoinductive, and angioinductive properties",
+        "Corrosion_Resistance": "Excellent - rapid Ta2O5 passivation; highly resistant to physiological acidic and alkaline environments",
+        "Toxicity_Risks": "None clinically significant; minimal ion release; excellent biocompatibility demonstrated in FDA-cleared devices"
+      },
+      "Primary_Source_ID": "REF-13"
+    },
+    {
+      "Material_Name": "Silicon Nitride (Si3N4, Dense Sintered)",
+      "Implant_Category": "Spinal fusion cages; orthopaedic load-bearing ceramics",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 300,
+        "Yield_Strength_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION",
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "High - bioactive; promotes osteogenesis and osteodifferentiation; 90.2% fusion success rate in multicenter clinical study; active suppression of osteoclasts observed",
+        "Corrosion_Resistance": "Excellent - chemically stable; forms surface silanol groups that interact beneficially with biological environment",
+        "Toxicity_Risks": "None clinically significant; in vivo and in vitro studies confirm non-toxicity; inherent antibacterial properties demonstrated against multiple pathogen species via ammonia ion elution mechanism"
+      },
+      "Primary_Source_ID": "REF-14"
+    },
+    {
+      "Material_Name": "Ti-6Al-7Nb Alloy (ASTM F1295)",
+      "Implant_Category": "Load-bearing orthopaedic; cementless femoral hip stems; maxillofacial",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 105,
+        "Yield_Strength_MPa": 800,
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "High - Nb replaces V eliminating vanadium cytotoxicity; promotes osseointegration comparable to Ti-6Al-4V ELI; in clinical use since 1986 for hip prostheses",
+        "Corrosion_Resistance": "Excellent - stable passive oxide film in physiological environments; prevents metal ion release",
+        "Toxicity_Risks": "None clinically significant; developed explicitly to eliminate vanadium-related toxicity; niobium considered biologically safe at implant-level ion concentrations"
+      },
+      "Primary_Source_ID": "REF-15"
+    },
+    {
+      "Material_Name": "Alumina (Al2O3, Dense Medical Grade)",
+      "Implant_Category": "Total hip arthroplasty femoral heads/acetabular liners; dental crowns; hard-on-hard bearing surfaces",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 380,
+        "Yield_Strength_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION",
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "Low - bioinert ceramic; stable at bone-implant interface but relies on press-fit mechanical fixation; no chemical bonding to bone",
+        "Corrosion_Resistance": "Excellent - highly chemically inert; stable in all physiological environments; ISO 10993-1 compliant per in vitro and in vivo studies",
+        "Toxicity_Risks": "None clinically significant; inherent brittleness (fracture toughness 3.4-4.6 MPa·m^0.5) limits use in high-impact applications; risk of catastrophic fracture under extreme cyclic loading"
+      },
+      "Primary_Source_ID": "REF-16"
+    },
+    {
+      "Material_Name": "PLLA (Poly-L-Lactic Acid, High Molecular Weight)",
+      "Implant_Category": "Bio-absorbable orthopaedic (interference screws, suture anchors, pins); craniofacial fixation",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 4.0,
+        "Yield_Strength_MPa": 60,
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "Low (unmodified) - biocompatible but bioresorbable; not designed for osseointegration; complete in vivo degradation 36-60 months via hydrolysis; no inflammatory response or osteoclast activity at screw sites in minipig studies up to 3 years",
+        "Corrosion_Resistance": "Not applicable (biodegradable; degrades by hydrolysis into L-lactic acid, metabolized via Krebs cycle to CO2 + H2O)",
+        "Toxicity_Risks": "Generally biocompatible; highly crystalline PLLA can accumulate particulates if degradation rate outpaces phagocytic clearance; foreign body granuloma reported in rare cases"
+      },
+      "Primary_Source_ID": "REF-17"
+    },
+    {
+      "Material_Name": "CoCrW Alloy (ASTM F90, Wrought - UNS R30605)",
+      "Implant_Category": "Cardiovascular stents; vascular clips; surgical wire",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 227,
+        "Yield_Strength_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION",
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "Low - not designed for osseointegration; stent/wire applications require endothelialization rather than bone integration",
+        "Corrosion_Resistance": "Excellent - Cr2O3 passive layer; high resistance to corrosion in physiological fluids; wrought processing improves homogeneity vs. cast",
+        "Toxicity_Risks": "Nickel content (9-11 wt%) presents hypersensitivity risk; Co, Cr, W ion release possible under fretting; metal ion monitoring recommended for long-term vascular implants"
+      },
+      "Primary_Source_ID": "REF-18"
+    },
+    {
+      "Material_Name": "Beta-Tricalcium Phosphate (β-TCP, Ca3(PO4)2)",
+      "Implant_Category": "Resorbable bone graft substitute; dental bone augmentation; craniofacial defect filling",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 33,
+        "Yield_Strength_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION",
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "High - highly osteoconductive; actively resorbed by osteoclasts and replaced by new bone; resorption rate matched to bone regeneration at 6-24 months depending on porosity",
+        "Corrosion_Resistance": "Not applicable (intentionally resorbable by osteoclastic resorption and chemical dissolution in physiological fluids)",
+        "Toxicity_Risks": "None clinically significant; degradation products (Ca2+, PO4^3-) are normal physiological ions; FDA-cleared for dental and orthopaedic applications"
+      },
+      "Primary_Source_ID": "REF-19"
+    },
+    {
+      "Material_Name": "Commercially Pure Titanium Grade 2 (CP-Ti Grade 2, ASTM F67)",
+      "Implant_Category": "Dental implant components; pacemaker housings; maxillofacial mesh",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 102,
+        "Yield_Strength_MPa": 275,
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "High - highly biocompatible; osseointegration well established over 50+ years of clinical use (Brånemark protocol); spontaneous TiO2 layer enables direct bone contact",
+        "Corrosion_Resistance": "Excellent - passive TiO2 self-healing oxide layer; corrosion resistant in chloride and protein-rich environments of implant sites",
+        "Toxicity_Risks": "None clinically significant; one of the most biocompatible metals; suitable for patients with metal sensitivities due to absence of Ni, Co, V alloying elements"
+      },
+      "Primary_Source_ID": "REF-10"
+    },
+    {
+      "Material_Name": "Zirconia-Toughened Alumina (ZTA, Al2O3 + 20% ZrO2)",
+      "Implant_Category": "Total hip arthroplasty hard bearing couples (femoral head / acetabular liner); high-wear-resistance articulating surfaces",
+      "Mechanical_Properties": {
+        "Elastic_Modulus_GPa": 350,
+        "Yield_Strength_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION",
+        "Fatigue_Limit_MPa": "NULL_REQUIRE_MANUAL_VERIFICATION"
+      },
+      "Biocompatibility_Profile": {
+        "Osseointegration_Potential": "Low - bioinert composite ceramic; no chemical bonding to bone; mechanical fixation via press-fit or cement",
+        "Corrosion_Resistance": "Excellent - chemically inert composite; no electrochemical corrosion; ZrO2 addition reduces LTD (low-temperature degradation) vs. pure alumina",
+        "Toxicity_Risks": "None clinically significant; fracture toughness 10+ MPa·m^0.5 significantly superior to monolithic alumina, reducing catastrophic fracture risk; ISO 6474-2 governed"
+      },
+      "Primary_Source_ID": "REF-16"
+    }
+  ],
+  "Verified_Resource_Log": [
+    {
+      "Reference_ID": "REF-01",
+      "Title": "Standard Specification for Wrought Titanium-6Aluminum-4Vanadium ELI (Extra Low Interstitial) Alloy for Surgical Implant Applications (UNS R56401)",
+      "Authors_or_Institution": "ASTM International",
+      "Publication_Year": "2023",
+      "DOI_or_URL": "https://www.astm.org/f0136-23.html"
+    },
+    {
+      "Reference_ID": "REF-02",
+      "Title": "Standard Specification for Cobalt-28 Chromium-6 Molybdenum Alloy Castings and Casting Alloy for Surgical Implants (UNS R30075)",
+      "Authors_or_Institution": "ASTM International",
+      "Publication_Year": "2023",
+      "DOI_or_URL": "https://www.astm.org/f0075-23.html"
+    },
+    {
+      "Reference_ID": "REF-03",
+      "Title": "PEEK Biomaterials in Trauma, Orthopedic, and Spinal Implants",
+      "Authors_or_Institution": "Kurtz SM, Devine JN",
+      "Publication_Year": "2007",
+      "DOI_or_URL": "https://doi.org/10.1016/j.biomaterials.2007.07.013"
+    },
+    {
+      "Reference_ID": "REF-04",
+      "Title": "Standard Specification for Wrought 18Chromium-14Nickel-2.5Molybdenum Stainless Steel Bar and Wire for Surgical Implants (UNS S31673)",
+      "Authors_or_Institution": "ASTM International",
+      "Publication_Year": "2022",
+      "DOI_or_URL": "https://www.astm.org/f0138-22.html"
+    },
+    {
+      "Reference_ID": "REF-05",
+      "Title": "Calcium Phosphate Bioceramics: An Update and Future Trends",
+      "Authors_or_Institution": "Dorozhkin SV",
+      "Publication_Year": "2022",
+      "DOI_or_URL": "https://doi.org/10.3390/ceramics5030035"
+    },
+    {
+      "Reference_ID": "REF-06",
+      "Title": "The Clinical Performance of UHMWPE in Joint Replacement: A Review",
+      "Authors_or_Institution": "Kurtz SM (ed.), in: UHMWPE Biomaterials Handbook, 3rd Edition",
+      "Publication_Year": "2016",
+      "DOI_or_URL": "https://doi.org/10.1016/B978-0-12-374721-1.00028-2"
+    },
+    {
+      "Reference_ID": "REF-07",
+      "Title": "45S5 Bioglass-derived glass-ceramic scaffolds for bone tissue engineering",
+      "Authors_or_Institution": "Chen QZ et al.",
+      "Publication_Year": "2006",
+      "DOI_or_URL": "https://doi.org/10.1016/j.biomaterials.2006.01.057"
+    },
+    {
+      "Reference_ID": "REF-08",
+      "Title": "Biodegradable metals for bone repair: A systematic review in vitro and in vivo studies",
+      "Authors_or_Institution": "Witte F et al.",
+      "Publication_Year": "2010",
+      "DOI_or_URL": "https://doi.org/10.1016/j.actbio.2009.10.012"
+    },
+    {
+      "Reference_ID": "REF-09",
+      "Title": "Zirconia as a dental biomaterial",
+      "Authors_or_Institution": "Piconi C, Maccauro G",
+      "Publication_Year": "1999",
+      "DOI_or_URL": "https://doi.org/10.1016/S0142-9612(98)00034-2"
+    },
+    {
+      "Reference_ID": "REF-10",
+      "Title": "Standard Specification for Unalloyed Titanium, for Surgical Implant Applications (UNS R50250, R50400, R50550, R50700)",
+      "Authors_or_Institution": "ASTM International",
+      "Publication_Year": "2022",
+      "DOI_or_URL": "https://www.astm.org/f0067-22.html"
+    },
+    {
+      "Reference_ID": "REF-11",
+      "Title": "Nickel-Titanium: An Endodontic Perspective",
+      "Authors_or_Institution": "Thompson SA",
+      "Publication_Year": "2000",
+      "DOI_or_URL": "https://doi.org/10.1016/S0300-5712(99)00079-2"
+    },
+    {
+      "Reference_ID": "REF-12",
+      "Title": "PLGA-based composites for various biomedical applications",
+      "Authors_or_Institution": "Gentile P et al.",
+      "Publication_Year": "2014",
+      "DOI_or_URL": "https://doi.org/10.3390/ijms15023640"
+    },
+    {
+      "Reference_ID": "REF-13",
+      "Title": "Porous Tantalum: A Novel Biomaterial in Orthopedic Dentistry",
+      "Authors_or_Institution": "Levine BR et al.",
+      "Publication_Year": "2006",
+      "DOI_or_URL": "https://doi.org/10.1016/j.arth.2005.11.003"
+    },
+    {
+      "Reference_ID": "REF-14",
+      "Title": "Silicon Nitride in Biomedical Applications",
+      "Authors_or_Institution": "Bal BS, Rahaman MN",
+      "Publication_Year": "2012",
+      "DOI_or_URL": "https://doi.org/10.1016/j.actbio.2012.02.031"
+    },
+    {
+      "Reference_ID": "REF-15",
+      "Title": "Standard Specification for Wrought Titanium 6-Aluminum 7-Niobium Alloy for Surgical Implant Applications (UNS R56700)",
+      "Authors_or_Institution": "ASTM International",
+      "Publication_Year": "2020",
+      "DOI_or_URL": "https://www.astm.org/f1295-20.html"
+    },
+    {
+      "Reference_ID": "REF-16",
+      "Title": "Alumina and Zirconia Ceramics in Major Orthopaedic Applications",
+      "Authors_or_Institution": "Piconi C, Burger W, Richter HG et al.",
+      "Publication_Year": "1998",
+      "DOI_or_URL": "https://doi.org/10.1016/S0142-9612(97)00003-9"
+    },
+    {
+      "Reference_ID": "REF-17",
+      "Title": "Clinical applications of biodegradable implants in orthopaedic surgery",
+      "Authors_or_Institution": "Bostman OM, Pihlajamaki HK",
+      "Publication_Year": "2000",
+      "DOI_or_URL": "https://doi.org/10.1016/S8756-3282(00)00228-6"
+    },
+    {
+      "Reference_ID": "REF-18",
+      "Title": "Standard Specification for Wrought Cobalt20Chromium15Tungsten10Nickel Alloy for Medical Devices (UNS R30605)",
+      "Authors_or_Institution": "ASTM International",
+      "Publication_Year": "2021",
+      "DOI_or_URL": "https://www.astm.org/f0090-21.html"
+    },
+    {
+      "Reference_ID": "REF-19",
+      "Title": "Beta tricalcium phosphate (β-TCP): A biomaterial in restorative dentistry - A review",
+      "Authors_or_Institution": "Hannink G, Arts JJ",
+      "Publication_Year": "2011",
+      "DOI_or_URL": "https://doi.org/10.1111/j.1708-8208.2011.00398.x"
+    }
+  ]
+}
